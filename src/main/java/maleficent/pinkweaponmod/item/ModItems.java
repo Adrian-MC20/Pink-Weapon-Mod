@@ -2,7 +2,7 @@ package maleficent.pinkweaponmod.item;
 
 import maleficent.pinkweaponmod.PinkWeaponMod;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.AxeItem;
+import net.minecraft.item.SwordItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ToolMaterial;
@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item PINK_WEAPON = registerItem("pink_weapon",
-            new AxeItem(ToolMaterial.GOLD,180,-2.4f, new Item.Settings()
+            new SwordItem(ToolMaterial.GOLD,180,-2.4f, new Item.Settings()
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(PinkWeaponMod.MOD_ID, "pink_weapon")))));
 
     private static Item registerItem(String name, Item item){
@@ -24,6 +24,6 @@ public class ModItems {
     public static void registerModItems() {
         PinkWeaponMod.LOGGER.info("Registering Mod Items for " + PinkWeaponMod.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.add(PINK_WEAPON));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(PINK_WEAPON));
     }
 }
